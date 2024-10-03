@@ -1,0 +1,228 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .why-choose-us {
+            background-color:rgb(49, 235, 226); 
+            color: black;
+            padding: 50px 0;
+        }
+        .icon-box {
+            border: 2px solid #002fff; 
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            height: 250px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+        }
+        .icon-box:hover {
+            background-color: #c9b733;
+            transform: translateY(-10px);
+        }
+        .icon-box i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #010512; 
+        }
+        h3 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff5900; 
+        }
+        p {
+            color: #0e0d0d; 
+        }
+       
+    </style>
+</head>
+<body>
+
+
+<section class="why-choose-us  text-center">
+    <div class="container">
+        <h2 class="mb-5">Why Choose Us?</h2>
+        <p class="mb-5">See how we go the extra mile to make sure you have the best experience.</p>
+        <div class="row">
+            <!-- Box 1 -->
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-smile fa-2x"></i> <!-- Icon -->
+                    <h3>Customer Gratification</h3>
+                    <p>We value our customers' smiles over anything else, and offer services that go beyond industry standards.</p>
+                </div>
+            </div>
+            <!-- Box 2 -->
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-shield-alt fa-2x"></i> <!-- Icon -->
+                    <h3>Privacy First</h3>
+                    <p>Your privacy is of utmost importance to us! Rest assured, your personal details are safe with us, no matter what.</p>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-clock fa-2x"></i> <!-- Icon -->
+                    <h3>Safety & Punctuality</h3>
+                    <p>You're in safe hands! Ride in style and always be on time with us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.bus {
+    
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.amenity-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.amenity-box:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+}
+
+.amenity-box i {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.amenity-box h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.amenity-box p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+</style>
+
+
+
+
+
+
+
+
+<section class="bus amenity text-center mt-5">
+    <div class="container">
+        <h2 class="mb-5">Bus Amenities</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-solid fa-wifi fa-2x"></i> <!-- Icon -->
+                    <h3>Free Wi-Fi</h3>
+                    <p>Stay connected on the go with our complimentary Wi-Fi service.</p>
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-solid fa-bottle-water fa-2x" style="color: #74C0FC;"></i>
+                    <h3>Water Bottles</h3>
+                    <p>Stay hydrated with our complimentary water bottles.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-solid fa-plug fa-2x"></i>
+                    <h3>Power Outlets</h3>
+                    <p>Keep your devices charged with our convenient power outlets.</p>
+                   
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-solid fa-utensils fa-2x"></i>
+                    <h3>Onboard Snacks</h3>
+                    <p>Enjoy our selection of onboard snacks and refreshments.</p>
+                    
+
+
+
+                    
+                    
+                   
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-regular fa-user fa-2x"></i>
+                    <h3>Backup Drivers</h3>
+                    <p>Our buses are equipped with backup drivers to ensure your safety and comfort.</p>
+                </div>
+            </div>
+           
+            <div class="col-md-4">
+                <div class="amenity-box">
+                    <i class="fa-solid fa-tv fa-2x"></i>
+                    <h3>Entertainments</h3>
+                    <p>Enjoy our onboard entertainment system with movies and music</p>
+
+
+            
+
+                   
+
+
+
+
+
+
+                    
+
+                    
+
+                   
+
+                   
+
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
+{%endblock%}

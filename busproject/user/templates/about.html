@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Find Bus</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-primary text-white text-center">
+        <h1>About Us</h1>
+    </header>
+
+    <section class="bg-light text-center py-5">
+        <img src="{% static 'bus4.jpg' %}" alt="Find Bus" class="img-fluid mb-4" style="max-height: 400px; width: auto;">
+        <h2>Welcome to Find Bus!</h2>
+        <p>At Find Bus, we are committed to making your travel experience seamless and enjoyable.</p>
+    </section>
+
+    <main class="container my-5">
+        <!-- Our Mission Section -->
+        <section class="mission-section mb-5 text-center">
+            <h2 class="text-primary">Our Mission</h2>
+            <p class="lead">We aim to simplify the booking process and provide travelers with the best options for their journeys.</p>
+        </section>
+    
+        <!-- What We Offer Section -->
+        <section class="offer-section mb-5">
+            <h2 class="text-secondary text-center">What We Offer</h2>
+            <div class="row text-center mt-4">
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Wide Selection of Buses</strong></h5>
+                        <p>Choose from a range of buses that cater to different budgets and preferences.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Real-Time Availability</strong></h5>
+                        <p>Access the latest information on bus schedules and seat availability.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Secure Payment Options</strong></h5>
+                        <p>We offer multiple payment methods with the highest security standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Our Values Section -->
+        <section class="values-section mb-5">
+            <h2 class="text-success text-center">Our Values</h2>
+            <div class="row text-center mt-4">
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Transparency</strong></h5>
+                        <p>Clear and honest communication with our users is our priority.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Reliability</strong></h5>
+                        <p>Our platform is dependable, offering you peace of mind for your travels.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 border-0 shadow">
+                        <h5><strong>Innovation</strong></h5>
+                        <p>We continually improve to provide the best possible experience for our users.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Join Us Section -->
+        <section class="join-section mb-5 text-center">
+            <h2 class="text-info">Join Us on Your Journey</h2>
+            <p class="lead">Whether you're planning a weekend getaway or a long-distance trip, Find Bus is here to assist you at every step.</p>
+        </section>
+    
+        <!-- Contact Us Section -->
+        <section class="contact-section text-center">
+            <h2 class="text-warning">Contact Us</h2>
+            <p>Have questions? Reach us at <a href="mailto:contact@FindBus.com" class="text-decoration-none">contact@FindBus.com</a> or visit our <a href="contact.html" class="text-decoration-none">Contact Page</a>. We’d love to hear from you!</p>
+        </section>
+    </main>
+    
+    <footer class="footer bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Find Bus. All rights reserved.</p>
+    </footer>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

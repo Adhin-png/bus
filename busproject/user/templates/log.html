@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Find Bus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("{% static 'valentyn-chernetskyi-m0_o8QB-JGg-unsplash.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container h5 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form label {
+            color: #007bff;
+        }
+
+        .btn-login {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+
+        .alert {
+            max-width: 400px;
+            margin: 20px auto;
+            position:absolute;
+            top:5px;
+            
+            
+        }
+        label{
+            color:orange;
+            font-weight: 500;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ m }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="login-container">
+        <h5 class="text-center">Login</h5>
+        <form action="" method="POST" class="login">
+            {% csrf_token %}
+            
+            <div class="form-group mb-3">
+                <label for="username">Username:</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    {{ form.username }}
+                </div>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label for="password">Password:</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    {{ form.password }}
+                </div>
+            </div>
+
+            <div class="d-grid">
+                <input type="submit" value="Log In" class="btn btn-login">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

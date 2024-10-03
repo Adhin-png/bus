@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+
+</style>
+<body>
+
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow border-0">
+                    <div class="card-header  text-white text-center" style="background-color: rgb(227, 182, 98);">
+                        <h3>Register</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="" method="POST" class="userregform">
+                            {% csrf_token %}
+                            <!-- {{ form.as_p }} -->
+                            <div class="form">
+                                <label for="user">username:</label>
+                                {{ form.username }}
+                            </div>
+
+                            <div class="form">
+                                <label for="user">Email address:</label>
+                                {{ form.email }}
+                            </div>
+
+                            <div class="form">
+                                <label for="user">password:</label>
+                                {{ form.password1 }}
+                            </div>
+
+                            <div class="form">
+                                <label for="user">password confirmation:</label>
+                                {{ form.password2 }}
+                            </div>
+
+                            <!-- <div class="alert alert-success text-center" role="alert">
+                                {{ success_message }}
+                            </div>
+                             -->
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-success btn-block">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <small>Already have an account? <a href="{% url 'login_view' %}" class="text-primary">Login here</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGFf8ABt8TJO9MGjFVZl6hgiz3xAfU8fjbJgPb8y5t5" crossorigin="anonymous"></script>
+</body>
+
+</html>

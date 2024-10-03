@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container mt-4">
+    <h2 class="mb-4" style="color: white;">Your Booked Tickets</h2>
+
+    {% if tickets %}
+    
+        <div class="row">
+            {% for ticket in tickets %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white" style="text-align: center;">
+                        <h5 class="card-title">{{ ticket.bus.bus_name }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Source:</strong> {{ ticket.bus.source }}
+                        <strong>Destination:</strong> {{ ticket.bus.destination }}</p>
+                        <p><strong>Date:</strong> {{ ticket.bus.date }}
+                        <strong>Time:</strong> {{ ticket.bus.time }}</p>
+                        <p><strong>Fare:</strong>₹ {{ ticket.total_fare }}</p>
+                        <strong>Seats:</strong> {{ ticket.seats }}</p>
+                        <p><strong>Ticket Booked On:</strong> {{ ticket.ticket_taken }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p><strong>Name:</strong> {{ ticket.name }}</p>
+                        <p><strong>Email:</strong> {{ ticket.email }}</p>
+                        <p><strong>Phone:</strong> {{ ticket.phone_number }}</p>
+
+                        <!-- Cancel Button Form -->
+                        <a href="{% url 'cancel_ticket_view' ticket.id %}" class="btn btn-danger">Cancel Ticket</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+    <p class="alert alert-info">You haven't booked any tickets yet.</p>
+    {% endif %}
+</div>
+<style>
+    .alert{
+        margin-top: 20px;
+        font-size: large;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       
+    }
+    .btn:hover{
+        background-color:red;
+
+    }
+    
+   
+        body{
+            background-image:url('{%  static 'bookticket.jpg' %}');
+            background-repeat: no-repeat; /* Add this line */
+            background-size: cover; 
+            
+        }
+        .card {
+        opacity: 0.8; 
+        background-color: #fff; 
+        transition: opacity 0.5s;
+    }
+    .card:hover {
+        opacity: 1; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    }
+    </style>
+    
+</style>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "indexx.html" %}
+{% block content %}
+    <!-- <h2>{{ view.object.pk|yesno:"Update Bus,Add Bus" }}</h2> -->
+    <h2 class="form-title" style="color:rgb(225, 29, 29);">Update Bus &nbsp;</h2>
+
+    <form method="post" class="updateform">
+        {% csrf_token %}
+        <!-- {{ form }} -->
+        <div class="form">
+            <label for="bus">Bus Name:</label>
+            {{ form.bus_name }}
+        </div>
+      
+        <div class="form">
+          <label for="source">Source:</label>
+          {{ form.source }}
+      </div>
+      <div class="form">
+          <label for="destination">Destination:</label>
+          {{ form.destination }}
+      </div>
+      <div class="form">
+          <label for="date">Date:</label>
+          {{ form.date }}
+      </div>
+      <div class="form">
+          <label for="time">Time:</label>
+          {{ form.time }}
+      </div>
+
+      <div class="form">
+          <label for="fare">Fare:</label>
+          {{ form.bus_fare }}
+      </div>
+      
+      
+      <div class="form">
+        <label for="source">total_seat:</label>
+        {{ form.seat_available }}
+      </div>
+      <div class="form">
+        <label for="destination">remaining_seat:</label>
+        {{ form.seat_remaining }}
+      </div>
+
+      
+<div class="form">
+    <label for="destination">cancellation_policy:</label>
+    {{ form.cancellation_policy}}
+  </div>
+
+  <div class="form">
+    <label for="destination">refund_policy:</label>
+    {{ form.refund_policy }}
+  </div>
+    
+      
+        <button type="submit" class="btn btn-success">Save</button>
+    
+
+
+
+    </form>
+
+
+    <style>
+        .updateform {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
+}
+.form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form {
+    margin-bottom: 15px;
+}
+
+.form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(255, 68, 0);
+}
+.btn{
+    margin-left: 180px;
+    width:200px;
+}
+    </style>
+{% endblock %}

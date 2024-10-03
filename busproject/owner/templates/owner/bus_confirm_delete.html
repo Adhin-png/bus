@@ -1,0 +1,26 @@
+{% extends "indexx.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 550px;">
+    <div class="card text-center" style="width: 20rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)">
+        <div class="card-body">
+            <h5 class="card-title" style="color:rgb(220, 9, 9);">Confirm Delete</h5>
+            <p class="card-text">Are you sure you want to delete the bus "{{ bus.bus_name }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                <a href="{% url 'owner_bus_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+
+{% endblock %}

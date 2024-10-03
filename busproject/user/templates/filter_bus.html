@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .container {
+        width: 75%;
+        margin: 40px auto;
+    }
+
+    .card {
+        border-color: green;
+        border-radius: 30px;
+        border-width: 2px;
+    }
+
+    body {
+        background-image: url('{% static 'wayanad.jpg' %}');
+        background-size: cover;
+        background-position: center;
+        opacity: 80%;
+    }
+
+    .btn:hover {
+        background-color: #4CAF50;
+    }
+
+    .text-success {
+        font-weight: bold;
+    }
+
+    .table-container {
+        margin-top: 15px;
+    }
+</style>
+
+<div class="container table-container">
+    {% if buses %}
+    <div class="card mb-3">
+        {% for bus in buses %}
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="card-title" style="color: orange;">{{ bus.bus_name }}</h5>
+                    <p class="card-text">
+                        <strong>Source:</strong> {{ bus.source }} &nbsp; &nbsp;
+                        <strong>Destination:</strong> {{ bus.destination }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Departure:</strong> {{ bus.time }} {{ bus.date|date:"d M" }} &nbsp; | &nbsp;
+                    </p>
+
+                    <!-- Policies Dropdown -->
+                    <div class="dropdown mt-2">
+                        <a class="link dropdown-toggle" type="button" id="policyDropdown-{{ bus.id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                            Policies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="policyDropdown-{{ bus.id }}">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="collapse" data-bs-target="#cancellationPolicy-{{ bus.id }}">Cancellation Policy</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="collapse" data-bs-target="#refundPolicy-{{ bus.id }}">Refund Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Collapsible sections for policies -->
+                    <div id="cancellationPolicy-{{ bus.id }}" class="collapse mt-2">
+                        <strong>Cancellation Policy:</strong>
+                        <ul>
+                            <li>Cancellations made 24 hours prior to departure will receive a full refund.</li>
+                            <li>Exceptions: Cancellations due to bus operator errors or natural disasters will receive a full refund.</li>
+                        </ul>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="collapse" data-bs-target="#cancellationPolicy-{{ bus.id }}">Close</button>
+                    </div>
+
+                    <div id="refundPolicy-{{ bus.id }}" class="collapse mt-2">
+                        <strong>Refund Policy:</strong>
+                        <ul>
+                            <li>Refunds will be processed within 7-10 business days.</li>
+                        </ul>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="collapse" data-bs-target="#refundPolicy-{{ bus.id }}">Close</button>
+                    </div>
+                </div>
+
+                <!-- Bus Fare and Booking Button -->
+                <div class="col-md-4 text-end">
+                    <h5 class="text-success">₹ {{ bus.bus_fare }}</h5>
+                    <p>{{ bus.seat_available }} Total Seats &nbsp;</p>
+                    <p>{{ bus.seat_remaining }} Seats Left &nbsp;</p>
+                    <a href="{% url 'book_ticket_view' bus.id %}" class="btn btn-primary">Book Ticket</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-danger">No buses available for the selected source, destination, and date.</p>
+    {% endif %}
+</div>
+{% endblock %}

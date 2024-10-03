@@ -1,0 +1,51 @@
+{% extends "indexx.html" %}
+{% block content %}
+     <h2>Buses</h2>
+    <a href="{% url 'add_bus' %}" class="btn btn-success">Add New Bus</a> 
+    <table class="table table-bordered table-hover ">
+        <thead>
+            <tr>
+                <th>Bus Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Total Seats</th>
+                <th>Seats remaining</th>
+                <th>Fare</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bus in buses %}
+            <tr>
+                <td>{{ bus.bus_name }}</td>
+                <td>{{ bus.source }}</td>
+                <td>{{ bus.destination }}</td>
+                <td>{{ bus.seat_available }}</td>
+                <td>{{ bus.seat_remaining }}</td>
+
+                <td>{{ bus.bus_fare }}</td>
+                <td>{{ bus.date }}</td>
+                <td>{{ bus.time }}</td>
+                
+                
+                <td>
+                    <a href="{% url 'bus_update' bus.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'bus_delete' bus.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<style>
+    .table{
+        margin-top: 50px;
+
+
+    }
+    th{
+        background-color: #4CAF50;
+    }
+</style>
+{% endblock %}

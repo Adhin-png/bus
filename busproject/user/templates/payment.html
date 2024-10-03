@@ -1,0 +1,99 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(197, 138, 138);
+            background-image:url('{%  static 'payment-page.img.jpg' %}');
+            
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .card h1 {
+            text-align: center;
+            color: #333;
+        }
+        .card p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .card form {
+            margin-top: 20px;
+        }
+        .card form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .card form select, 
+        .card form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .card form button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        .card form button:hover {
+            background-color: #00b336;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 class="head" style="color: white;">Payment</h1>
+        <p>Please confirm your booking:</p>
+        <p><strong>Name:</strong> {{ ticket_data.name }}</p>
+        <p><strong>Email:</strong> {{ ticket_data.email }}</p>
+        <p><strong>Phone:</strong> {{ ticket_data.phone_number }}</p>
+        <p><strong>Seats:</strong> {{ ticket_data.seats }}</p>
+        <p><strong>Bus:</strong> {{ ticket_data.bus }}</p>
+        <p><strong>Fare per seat:</strong> {{ ticket_data.fare }}</p>
+        <p><strong>Total Fare:</strong> {{ total_fare }}</p>
+
+        <!-- Payment form -->
+        <form method="post" action="{% url 'payment_view' %}">
+            {% csrf_token %}
+            <input type="hidden" name="bus_id" value="{{ bus_id }}">
+            <input type="hidden" name="name" value="{{ ticket_data.name }}">
+            <input type="hidden" name="phone_number" value="{{ ticket_data.phone_number }}">
+            <input type="hidden" name="email" value="{{ ticket_data.email }}">
+            <input type="hidden" name="seats" value="{{ ticket_data.seats }}">
+            <input type="hidden" name="total_fare" value="{{ total_fare }}">
+
+            <!-- Payment Method Dropdown -->
+            <label for="payment_method">Select Payment Method:</label>
+            <select id="payment_method" name="payment_method">
+                <option value="Gpay">Gpay</option>
+                <option value="PhonePay">PhonePay</option>
+                <option value="PayTm">PayTm</option>
+                <option value="net_banking">Net Banking</option>
+            </select>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+</body>
+</html>
